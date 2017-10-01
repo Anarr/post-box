@@ -1,10 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
+import AppContainer from './components/AppContainer';
 
-class App extends Component {
+
+class App extends React.Component {
   render() {
     return (
       <div className="App">
         <h3>Post From PostBox</h3>
+        <AppContainer/>
       </div>
     );
   }
