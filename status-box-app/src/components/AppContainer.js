@@ -1,5 +1,7 @@
 import React from 'react';
-import { Container,Button } from 'semantic-ui-react';
+import { Container, Header } from 'semantic-ui-react';
+import PostTypesContainer from './PostTypesContainer';
+import FormPage from './pages/FormPage';
 
 class AppContainer extends React.Component{
 
@@ -8,9 +10,18 @@ class AppContainer extends React.Component{
 	render(){
 		return (
 			<Container>
-			<Button basic color="olive">
-				Click Here
-				</Button>
+				<Header size="medium">
+					<PostTypesContainer />
+				</Header>
+				
+				<Header size="medium">
+					<FormPage/>
+				</Header>
+				
+
+				<Header size="medium">
+					This is header
+				</Header>
 			</Container>
 		);
 	}

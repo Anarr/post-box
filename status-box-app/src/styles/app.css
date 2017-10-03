@@ -1,0 +1,12 @@
+.focusedBox{
+	text-align:center;
+	font-size: 28px;
+	color:#ccc;
+	transition: all 0.5s ease-in-out;
+}
+
+.unFocusedBox{
+	font-size: 1em;
+	color:rgba(0,0,0,.87);
+	transition: all 0.5s ease-in-out;
+}

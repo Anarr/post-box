@@ -1,5 +1,6 @@
 import React from 'react';
 import { Menu } from 'semantic-ui-react';
+import ActionsList from './lists/ActionsList';
 
 class PostTypesContainer extends React.Component{
 
@@ -15,7 +16,7 @@ class PostTypesContainer extends React.Component{
 			},
 			{
 				id:2,
-				name:"Home",
+				name:"Photo Post",
 				active:false,
 				key:2
 			}
@@ -23,26 +24,23 @@ class PostTypesContainer extends React.Component{
 		currentActive:1
 	};
 
-	handleItemClick = (element) => {
-		
-		this.setState({currentActive:element});
-		console.log(this.state.currentActive);
 
+	handleMenuItemClick = (item) => {
+		this.setState({currentActive:item})
 	}
 
 	render(){
 		let MenuItems;
 		const { data,currentActive } = this.state;
-		console.log(data);
 
 		MenuItems = data.map((item) => {
 			return(
-				<Menu.Item name={item.name} key={item.key} content={item.name} active={ item.id == currentActive ? true : false } onClick={this.handleItemClick.bind(null,item.id)}/>
+				<ActionsList menu={item.name} key={item.key} content={item.name} active={item.id === currentActive ? true : false} onClick={this.handleMenuItemClick.bind(null, item.id)}/>
 			);
-		});
+		});		
 
 		return (
-			<Menu>
+			<Menu pointing>
 				{MenuItems}
 			</Menu>
 		);
