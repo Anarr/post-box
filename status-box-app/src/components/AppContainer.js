@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Header } from 'semantic-ui-react';
 import PostTypesContainer from './PostTypesContainer';
 import FormPage from './pages/FormPage';
+import Footer from './pages/footer';
 
 class AppContainer extends React.Component{
 
@@ -20,7 +21,7 @@ class AppContainer extends React.Component{
 				
 
 				<Header size="medium">
-					This is header
+					<Footer />
 				</Header>
 			</Container>
 		);

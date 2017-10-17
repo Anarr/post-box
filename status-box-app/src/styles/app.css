@@ -10,3 +10,25 @@
 	color:rgba(0,0,0,.87);
 	transition: all 0.5s ease-in-out;
 }
+.formPage{
+	position: relative;
+}
+.colorsList{
+	position: absolute;
+	color: purple;
+	bottom: 0%;
+}
+.colorsList ul {
+	list-style-type: none;
+}
+.colorsList ul li{
+	border: 1px solid grey;
+	border-radius: 50%;
+	font-size: 12px;
+	text-align: center;
+	width: 25px;
+	float: left;
+	height: 25px;
+	margin: 5px;
+	cursor:pointer;
+}
