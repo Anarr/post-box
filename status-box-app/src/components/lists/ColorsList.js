@@ -4,6 +4,7 @@ import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 import { selectColor } from '../../actions/color-actions';
 
+
 class ColorsList extends React.Component{
 
     createColorListItems(){
@@ -13,7 +14,8 @@ class ColorsList extends React.Component{
             if(this.props.currentId == color.id){
                 style={
                     border:"2px solid white",
-                    backgroundColor:this.props.current_color
+                    backgroundColor:this.props.current_color,
+                    color:"white"
                 }
             }else{
                 style={};

@@ -2,25 +2,31 @@ import React from 'react';
 import  { Form } from 'semantic-ui-react';
 import '../../styles/app.css';
 import ColorsList from '../lists/ColorsList';
+import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
-
+import { focusForm } from '../../actions/focused-actions';
 class FormPage extends React.Component {
 
 	state = {
-		focused:false,
-		backgroundColor:""
+		comment:"",
+		backgroundColor:"",
+		error:false
 	};
 
-	handleStatusBox = (e) => {
-		// let focused = this.state.focused ? false : true;
-		let focused = true;
-		this.setState({focused:focused});
+
+	getComment = (e) => {
+		let comment = e.target.value;
+
+		this.setState({"comment":comment});
 	}
 
-
 	render(){
+		// variablelari multiple declare
 		let currentColor,currentId;
-		const { focused } = this.state;
+		var focused  = (!this.props.commentBox) ? false: this.props.commentBox.focused ;
+		let comment=this.state.comment;
+
+		if(this.props.commentBox ){this.props.commentBox.value = comment;}
 
 		if(!this.props.colors){
 			currentColor = "";
@@ -33,7 +39,7 @@ class FormPage extends React.Component {
 		return(
 			<div className="formPage" >
 				<Form>
-					<Form.TextArea style={{backgroundColor:currentColor}} placeholder="Tell us more about you" className={ focused ? 'focusedBox' : 'unFocusedBox' } onFocus={this.handleStatusBox.bind(this)}/>
+					<Form.TextArea value={this.comment} style={{backgroundColor:currentColor, color:"#fff" }} placeholder="Tell us more about you" className={ focused ? 'focusedBox' : 'unFocusedBox' } onClick = {()=>this.props.focusForm(comment)} onChange={this.getComment}/>
 				</Form>
 				<ColorsList currentId={currentId}/>
 			</div>
@@ -44,9 +50,18 @@ class FormPage extends React.Component {
 
 function mapStateToProps(state){
 	return {
-		colors: state.activeColor
+		colors: state.activeColor,
+		commentBox:state.commentBox
 	}
 }
 
+function matchDisptachToProps(dispatch){
+    return bindActionCreators(
+        {
+            focusForm:focusForm
+        }, 
+        dispatch
+    );
+}
 
-export default connect(mapStateToProps)(FormPage); 
+export default connect(mapStateToProps,matchDisptachToProps)(FormPage); 
