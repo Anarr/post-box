@@ -7,7 +7,7 @@ export const cancelForm = () => {
     }
 }
 export const saveForm = (i,focused) =>{
-    console.log(`saved ${i}`);    
+    console.log(`saved ${i}`); 
     return{
         type:"SAVE_FORM",
         focused:focused,

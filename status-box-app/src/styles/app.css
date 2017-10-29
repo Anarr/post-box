@@ -32,3 +32,6 @@
 	margin: 5px;
 	cursor:pointer;
 }
+.button_preview{
+    float: right;
+}
